@@ -1,0 +1,11 @@
+token创建与验证封装图片
+http://39.107.50.117:3000/images/ac80cf9c838c8af5eb0395d4c2f7d3e8.png
+
+express服务搭建
+http://39.107.50.117:3000/images/63cab61d3e858243ec804aecad575d29.png
+
+服务启动
+http://39.107.50.117:3000/images/cad3f71a19a86c6e110a5e43c5e93615.png
+
+测试结果
+http://39.107.50.117:3000/images/a25a32a187e2b14483e1f707bf2b60ee.png
