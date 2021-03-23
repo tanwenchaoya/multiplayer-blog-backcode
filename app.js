@@ -10,7 +10,6 @@ var usersRouter = require('./routes/users');
 var noteRouter = require('./routes/note')
 var messageRouter = require('./routes/leavemessage')
 var pageRouter = require('./routes/page')
-var musicRouter = require('./routes/music')
 const session = require('express-session');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,7 +48,6 @@ app.use('/user', usersRouter);
 app.use('/note', noteRouter);
 app.use('/message', messageRouter);
 app.use('/page',pageRouter);
-app.use('/music',musicRouter);
 
 /* 捕捉404 */
 app.use(function(req, res, next) {

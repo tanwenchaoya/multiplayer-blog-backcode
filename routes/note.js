@@ -372,8 +372,8 @@ router.post("/articlePublish", (req, res) => {
 });
 
 /* 获取文章基本信息 */
-router.get("/getArticleInfo/:id", (req, res) => {
-  const id = req.params.id;
+router.get("/getArticleInfo", (req, res) => {
+  const {id} = req.query;
   const sql = `SELECT * FROM article WHERE article_id = '${id}'`;
   mysql.query(sql, (err, result) => {
     if (!err) {
@@ -387,32 +387,32 @@ router.get("/getArticleInfo/:id", (req, res) => {
 /* 修改文章 */
 router.post("/editorArticle", (req, res) => {
   const {
-    article_brief,
-    article_img,
+    brief,
+    src,
     content,
     title,
     lable,
     article_id,
-    article_categroy,
+    categroy,
   } = req.body;
   const sql =
     "UPDATE article SET article_brief = ?, article_img = ?, content = ?, lable = ?, title = ?, article_categroy = ? WHERE article_id = ?;";
   const parmas = [
-    article_brief,
-    article_img,
+    brief,
+    src,
     content,
     lable,
     title,
-    article_categroy,
+    categroy,
     article_id,
   ];
   mysql.query(sql, parmas, (err) => {
     if (!err) {
-      return res.json({ err: 0, message: "文章信息更新完成!" });
+      return res.json({ status: 200, message: "文章信息更新完成!" });
     } else {
       console.log(err.message);
       return res.json({
-        err: -999,
+        status: -999,
         message: "更新失败，请检查网络情况再次尝试吧!",
       });
     }

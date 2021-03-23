@@ -123,9 +123,15 @@ router.post("/getUserArticle", (req, res) => {
 })
 
 /*删除文章*/
-router.get("/deleteArticle", (req, res) => {
+router.get("/deleteArticle", async (req, res) => {
   let { article_id } = req.query;
-  console.log(article_id)
+  const sql = `DELETE FROM article WHERE article_id = '${article_id}';`
+  try {
+    await splQuery(sql)
+    return res.send({ status: 200, message: '删除文章成功！' });
+  } catch (e) {
+    return res.send({status:500,message:'删除失败啦！'})
+  } 
 })
 function splQuery(sql) {
   return new Promise((resolve, reject) => {
