@@ -25,7 +25,7 @@ app.use(session({
 app.use(logger('dev'));
 /* 开发模式 */
 app.use(cors({
-  origin:['http://localhost:8080','http://192.168.1.4:8080'],
+  origin:['http://localhost:8080','http://192.168.1.6:8080'],
   credentials: true
 }));
 /* 上线模式 */
